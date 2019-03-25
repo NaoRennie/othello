@@ -4,6 +4,7 @@
     :x="x"
     :y="y"
     :style="pieceStyle"
+    @click="clicked(x, y)"
     ></div>
 </template>
 
@@ -23,28 +24,32 @@ export default {
   data() {
     return {
       color: [ '#000', '#FFF' ],
+      directions: [[0,-1],[1,0],[0,1],[-1,0],[-1,-1],[1,1],[-1,1],[1,-1]],
+      turn: false
     }
   },
    computed: {
-    // first: function(i) {
-    //   if((i.x === 5 && i.y === 6)||(i.x === 6 && i.y === 5)){
-    //     // eslint-disable-next-line
-    //     console.log('ture')
-    //   return  this.back=this.color[0] 
-    //   }
-    // },
     pieceStyle: function(){
-      // eslint-disable-next-line
-      console.log(this, 'this')
       if((this.x === 4 && this.y === 5)||(this.x === 5 && this.y === 4)){
-        // eslint-disable-next-line
-        console.log(this.x, 'ture')
         return { background: this.color[1]}
       } else if ((this.x === 4 && this.y === 4)||(this.x === 5 && this.y === 5)){
         return {background: this.color[0]}
       } else {
         return {background: ''}
       }
+    }
+  },
+   methods: {
+    clicked(x, y){
+      let turn = false
+      let myColor = turn === false ? this.color[0]:this.color[1];
+      // this.directions.forEach((i)=> {
+      //   let a = x + i[0]
+      //   let b = y + i[1]
+      //     // eslint-disable-next-line
+      //   console.log( 'data')
+       
+      // })
     }
   }
 }

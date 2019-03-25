@@ -5,7 +5,6 @@
         class= "square"
         v-for="x in 8"
         :key="x"
-        @click="clicked(x, y)"
         >
         <Piece
         :x="x"
@@ -31,18 +30,6 @@ export default {
     y: {
       type: Number,
       default: 0
-    },
-    back: {
-      type: String,
-      default: null
-    }
-  },
-  methods: {
-    clicked(x, y){
-      // eslint-disable-next-line
-      console.log(x, y)
-      // eslint-disable-next-line
-      console.log()
     }
   }
 }
